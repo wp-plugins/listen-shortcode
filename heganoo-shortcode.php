@@ -37,11 +37,10 @@ function listenEmbedJS( $atts, $content = null ) {
 		return $error;
 
 	} else {
-
+        wp_enqueue_script( 'listen_js', plugin_dir_url( __FILE__ ) . 'listen.js' );
 		// Set the output.
 		$output = "";
 		$output .= "<span class='listen-node' data-src='$src' data-start='$start' data-end='$end'>$content</span>\n";
-		$output .= "<script>(function(d,s,id){var js, fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src='http://konforti.net/listen/listen.js';fjs.parentNode.insertBefore(js,fjs);})(document,'script','listen-embed');</script>\n";
 
 		return $output;
 	}
